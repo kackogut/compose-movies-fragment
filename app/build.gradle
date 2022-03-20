@@ -69,6 +69,7 @@ dependencies {
     implementation Libs.AndroidX.Compose.runtimeLivedata
     implementation Libs.AndroidX.Compose.toolingPreview
     implementation Libs.AndroidX.Compose.viewBinding
+    debugImplementation Libs.AndroidX.Compose.uiTooling
 
     implementation Libs.AndroidX.Material3.material3
     implementation Libs.Material.material3
@@ -78,6 +79,8 @@ dependencies {
     implementation Libs.Lifecycle.viewModelCompose
 
     implementation Libs.Navigation.fragment
+
+    implementation Libs.Coil.coil
 
     implementation Libs.Hilt.Ext.hilt
     kapt Libs.Hilt.Kapt.kapt

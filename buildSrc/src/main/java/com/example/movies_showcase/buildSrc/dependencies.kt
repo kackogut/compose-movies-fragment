@@ -21,6 +21,7 @@ object Libs {
             const val runtime = "androidx.compose.runtime:runtime:$version"
             const val runtimeLivedata = "androidx.compose.runtime:runtime-livedata:$version"
             const val toolingPreview = "androidx.compose.ui:ui-tooling-preview:$version"
+            const val uiTooling = "androidx.compose.ui:ui-tooling:$version"
             const val viewBinding = "androidx.compose.ui:ui-viewbinding:$version"
         }
 
@@ -31,6 +32,10 @@ object Libs {
 
     object Material {
         const val material3 = "com.google.android.material:material:1.6.0-alpha02"
+    }
+
+    object Coil {
+        const val coil = "io.coil-kt:coil-compose:2.0.0-rc01"
     }
 
     object Lifecycle {

@@ -1,3 +1,5 @@
+import com.example.movies_showcase.buildSrc.Libs
+
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
@@ -5,7 +7,7 @@ plugins {
     id 'dagger.hilt.android.plugin'
 }
 
-def apikeyPropertiesFile = rootProject.file("buildsystem/secrets.properties")
+def apikeyPropertiesFile = rootProject.file("buildSrc/secrets.properties")
 def apikeyProperties = new Properties()
 apikeyProperties.load(new FileInputStream(apikeyPropertiesFile))
 
@@ -42,6 +44,7 @@ android {
     }
     buildFeatures {
         compose true
+        viewBinding true
     }
     composeOptions {
         kotlinCompilerExtensionVersion compose_version
@@ -54,30 +57,38 @@ android {
 }
 
 dependencies {
+    implementation Libs.AndroidX.coreKtx
+    implementation Libs.AndroidX.Activity.activityCompose
+    implementation Libs.AndroidX.Activity.appcompat
 
-    implementation 'androidx.core:core-ktx:1.7.0'
-    implementation "androidx.compose.ui:ui:$compose_version"
-    implementation "androidx.compose.material:material:$compose_version"
-    implementation "androidx.compose.ui:ui-tooling-preview:$compose_version"
-    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.4.1'
-    implementation 'androidx.activity:activity-compose:1.4.0'
+    implementation Libs.AndroidX.Compose.foundation
+    implementation Libs.AndroidX.Compose.layout
+    implementation Libs.AndroidX.Compose.material
+    implementation Libs.AndroidX.Compose.materialIconsExtended
+    implementation Libs.AndroidX.Compose.runtime
+    implementation Libs.AndroidX.Compose.runtimeLivedata
+    implementation Libs.AndroidX.Compose.toolingPreview
+    implementation Libs.AndroidX.Compose.viewBinding
 
-    implementation(platform("com.squareup.okhttp3:okhttp-bom:4.9.3"))
-    implementation("com.squareup.okhttp3:okhttp")
-    implementation("com.squareup.okhttp3:logging-interceptor")
+    implementation Libs.AndroidX.Material3.material3
+    implementation Libs.Material.material3
 
-    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
-    implementation "com.squareup.retrofit2:converter-moshi:2.4.0"
+    implementation Libs.Lifecycle.livedata
+    implementation Libs.Lifecycle.viewmodel
+    implementation Libs.Lifecycle.viewModelCompose
 
-    implementation "com.google.dagger:hilt-android:$hilt_version"
-    kapt "com.google.dagger:hilt-compiler:$hilt_version"
+    implementation Libs.Navigation.fragment
 
-    testImplementation 'junit:junit:4.13.2'
-    testImplementation 'com.google.truth:truth:1.1.3'
-    testImplementation "io.mockk:mockk:1.12.3"
+    implementation Libs.Hilt.Ext.hilt
+    kapt Libs.Hilt.Kapt.kapt
 
-    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
-    androidTestImplementation "androidx.compose.ui:ui-test-junit4:$compose_version"
-    debugImplementation "androidx.compose.ui:ui-tooling:$compose_version"
+    implementation Libs.Retrofit.retrofit
+    implementation Libs.Retrofit.moshi
+
+    implementation Libs.OkHttp.okhttp
+    implementation Libs.OkHttp.logging
+
+    testImplementation Libs.Test.junit
+    testImplementation Libs.Test.mockk
+    testImplementation Libs.Test.truth
 }

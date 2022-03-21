@@ -18,9 +18,9 @@ class MoviesRepositoryImpl @Inject constructor(
     private val moviesMapper: MoviesMapper
 ) : MoviesRepository {
 
-    override suspend fun getMoviesList(): Flow<ApiResponse<List<Movie>>> {
+    override suspend fun getMoviesList(page: Int): Flow<ApiResponse<List<Movie>>> {
         return flow {
-            responseHandler.handleApiCall { moviesService.getMovies() }
+            responseHandler.handleApiCall { moviesService.getMovies(page.toString()) }
                 .run { mapData(moviesMapper::mapMoviesListResponse) }
                 .also { emit(it) }
         }.flowOn(Dispatchers.IO)

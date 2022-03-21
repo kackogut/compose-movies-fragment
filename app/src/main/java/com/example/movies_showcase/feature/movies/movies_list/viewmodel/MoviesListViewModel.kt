@@ -1,36 +1,25 @@
 package com.example.movies_showcase.feature.movies.movies_list.viewmodel
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
-import com.example.movies_showcase.data.model.response.ApiResponse
+import androidx.paging.Pager
+import androidx.paging.PagingConfig
+import androidx.paging.PagingData
 import com.example.movies_showcase.data.repository.MoviesRepositoryImpl
-import com.example.movies_showcase.feature.movies.movies_list.state.MoviesListState
+import com.example.movies_showcase.domain.model.movie.Movie
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
 @HiltViewModel
 class MoviesListViewModel @Inject constructor(private val moviesRepository: MoviesRepositoryImpl) :
     ViewModel() {
 
-    private val _state = MutableLiveData<MoviesListState>(MoviesListState.Initial)
-    val state: LiveData<MoviesListState>
-        get() = _state
+    val movies: Flow<PagingData<Movie>> = Pager(PagingConfig(pageSize = PAGE_SIZE)) {
+        MoviesSource(moviesRepository)
+    }.flow
 
-    fun loadInitialMovies() {
-        viewModelScope.launch {
-            _state.value = MoviesListState.Loading
+    private companion object {
 
-            moviesRepository.getMoviesList().collect { moviesResponse ->
-                when (moviesResponse) {
-                    is ApiResponse.Error -> _state.value = MoviesListState.Error
-                    is ApiResponse.Success -> {
-                        _state.value = MoviesListState.Movies(moviesResponse.data)
-                    }
-                }
-            }
-        }
+        const val PAGE_SIZE = 30
     }
 }

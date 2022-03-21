@@ -28,6 +28,10 @@ object Libs {
         object Material3 {
             const val material3 = "androidx.compose.material3:material3:1.0.0-alpha06"
         }
+
+        object Paging {
+            const val compose = "androidx.paging:paging-compose:1.0.0-alpha14"
+        }
     }
 
     object Material {

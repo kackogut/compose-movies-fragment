@@ -1,6 +1,9 @@
 <resources>
-    <string name="app_name">Movies Showcase</string>
+    <string name="app_name" translatable="false">Movies Showcase</string>
 
     <string name="network_error_description">Something went wrong,\ntry again in a few moments</string>
     <string name="try_again">Try again</string>
+
+    <string name="content_description_missing_image_poster">Missing movie poster icon</string>
+    <string name="content_description_image_poster">Movie poster</string>
 </resources>

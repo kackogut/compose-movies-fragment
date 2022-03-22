@@ -1,6 +1,7 @@
 package com.example.movies_showcase.feature.movies.movies_list.ui.components
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Movie
@@ -26,7 +27,7 @@ import com.example.movies_showcase.ui.theme.Purple700
 import com.example.movies_showcase.ui.theme.Shapes
 
 @Composable
-fun MovieListItem(movie: Movie) {
+fun MovieListItem(movie: Movie, onMovieClick: (String) -> Unit) {
     Row(
         verticalAlignment = Alignment.CenterVertically,
         modifier = Modifier
@@ -38,9 +39,15 @@ fun MovieListItem(movie: Movie) {
                         Purple700,
                     )
                 ),
-                shape = Shapes.large,
+                shape = Shapes.large
             )
+            .clip(shape = Shapes.large)
             .height(122.dp)
+            .clickable(
+                onClick = {
+                    onMovieClick(movie.id)
+                }
+            )
     ) {
         Spacer(modifier = Modifier.width(Dimens.paddingLarge))
         Poster(posterUrl = movie.posterUrl)

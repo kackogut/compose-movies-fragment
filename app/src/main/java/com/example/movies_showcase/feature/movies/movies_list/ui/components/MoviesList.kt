@@ -3,6 +3,7 @@ package com.example.movies_showcase.feature.movies.movies_list.ui.components
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.LazyListState
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.paging.LoadState
@@ -14,14 +15,19 @@ import com.example.movies_showcase.ui.components.loading.LoadingView
 import com.example.movies_showcase.ui.theme.Dimens
 
 @Composable
-fun MoviesList(movies: LazyPagingItems<Movie>) {
+fun MoviesList(
+    movies: LazyPagingItems<Movie>,
+    listState: LazyListState,
+    onMovieClick: (String) -> Unit
+) {
     LazyColumn(
         modifier = Modifier
             .fillMaxSize()
-            .padding(horizontal = Dimens.baseHorizontalPadding)
+            .padding(horizontal = Dimens.baseHorizontalPadding),
+        state = listState
     ) {
         items(movies) { movie ->
-            movie?.let { MovieListItem(movie) }
+            movie?.let { MovieListItem(movie, onMovieClick) }
         }
 
         when {
@@ -39,7 +45,7 @@ fun MoviesList(movies: LazyPagingItems<Movie>) {
                     )
                 }
             }
-            movies.loadState.refresh is LoadState.Error || movies.loadState.append is LoadState.Error -> {
+            movies.loadState.refresh is LoadState.Error -> {
                 item {
                     NetworkErrorView(
                         onTryAgain = { movies.retry() },

@@ -50,12 +50,12 @@ object Libs {
     }
 
     object Navigation {
-        private const val version = "2.4.1"
+        const val version = "2.4.1"
         const val fragment = "androidx.navigation:navigation-fragment-ktx:$version"
     }
 
     object Hilt {
-        private const val version = "2.41"
+        const val version = "2.41"
 
         object Ext {
             const val hilt = "com.google.dagger:hilt-android:$version"

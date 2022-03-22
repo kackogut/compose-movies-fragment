@@ -1,8 +1,10 @@
 package com.example.movies_showcase.data.mapper
 
+import com.example.movies_showcase.data.model.movie.MovieDetailsDto
 import com.example.movies_showcase.data.model.movie.MovieDto
 import com.example.movies_showcase.data.model.movie.MoviesResponse
 import com.example.movies_showcase.domain.model.movie.Movie
+import com.example.movies_showcase.domain.model.movie.MovieDetails
 import javax.inject.Inject
 
 class MoviesMapper @Inject constructor() {
@@ -18,6 +20,14 @@ class MoviesMapper @Inject constructor() {
                 title = titleText.title,
                 posterUrl = primaryImage?.url,
                 releaseYear = releaseDate?.year
+            )
+        }
+    }
+
+    fun movieDetailsToDomainModel(movieDetailsDto: MovieDetailsDto): MovieDetails {
+        return with(movieDetailsDto) {
+            MovieDetails(
+                title = titleText.title
             )
         }
     }

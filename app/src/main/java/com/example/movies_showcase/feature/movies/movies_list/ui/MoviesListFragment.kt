@@ -6,6 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.lazy.LazyListState
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material.Surface
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.ui.Modifier
@@ -13,6 +15,7 @@ import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.res.stringResource
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.findNavController
 import androidx.paging.compose.collectAsLazyPagingItems
 import com.example.movies_showcase.R
 import com.example.movies_showcase.feature.movies.movies_list.ui.components.MoviesList
@@ -32,6 +35,7 @@ class MoviesListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View = ComposeView(inflater.context).apply {
         setContent {
+            val listState: LazyListState = rememberLazyListState()
             val movies = viewModel.movies.collectAsLazyPagingItems()
 
             MoviesShowcaseTheme {
@@ -41,7 +45,13 @@ class MoviesListFragment : Fragment() {
                 ) {
                     Column {
                         BaseToolbar(title = stringResource(R.string.movies_list_title))
-                        MoviesList(movies = movies)
+                        MoviesList(movies = movies, listState = listState) { movieId ->
+                            findNavController().navigate(
+                                MoviesListFragmentDirections.moviesListToMovieDetails(
+                                    movieId
+                                )
+                            )
+                        }
                     }
                 }
             }

@@ -18,7 +18,7 @@ fun MoviesList(movies: LazyPagingItems<Movie>) {
     LazyColumn(
         modifier = Modifier
             .fillMaxSize()
-            .padding(horizontal = Dimens.paddingLarge)
+            .padding(horizontal = Dimens.baseHorizontalPadding)
     ) {
         items(movies) { movie ->
             movie?.let { MovieListItem(movie) }

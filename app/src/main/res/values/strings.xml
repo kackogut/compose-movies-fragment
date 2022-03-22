@@ -6,4 +6,5 @@
 
     <string name="content_description_missing_image_poster">Missing movie poster icon</string>
     <string name="content_description_image_poster">Movie poster</string>
+    <string name="movies_list_title">Movies list</string>
 </resources>

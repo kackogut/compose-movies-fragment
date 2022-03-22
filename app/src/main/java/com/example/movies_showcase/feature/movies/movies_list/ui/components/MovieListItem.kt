@@ -37,11 +37,12 @@ fun MovieListItem(movie: Movie) {
                         Purple500,
                         Purple700,
                     )
-                ), shape = Shapes.large
+                ),
+                shape = Shapes.large,
             )
-            .height(128.dp)
+            .height(122.dp)
     ) {
-        Spacer(modifier = Modifier.width(Dimens.paddingMedium))
+        Spacer(modifier = Modifier.width(Dimens.paddingLarge))
         Poster(posterUrl = movie.posterUrl)
 
         Column(
@@ -64,7 +65,7 @@ fun Poster(posterUrl: String?) {
             tint = Color.White,
             modifier = Modifier
                 .padding(vertical = Dimens.paddingMedium)
-                .background(color = Color.Gray, shape = Shapes.large)
+                .background(color = Color.Gray, shape = Shapes.medium)
                 .width(Dimens.smallImage)
                 .fillMaxHeight()
         )
@@ -76,7 +77,7 @@ fun Poster(posterUrl: String?) {
             modifier = Modifier
                 .width(Dimens.smallImage)
                 .padding(vertical = Dimens.paddingMedium)
-                .clip(Shapes.large)
+                .clip(Shapes.medium)
         )
     }
 }
@@ -86,7 +87,7 @@ fun ColumnScope.Title(title: String) {
     Text(
         title,
         modifier = Modifier.weight(1F),
-        style = MaterialTheme.typography.headlineSmall.copy(color = Color.White),
+        style = MaterialTheme.typography.titleSmall.copy(color = Color.White),
         maxLines = 2,
         overflow = TextOverflow.Ellipsis
     )

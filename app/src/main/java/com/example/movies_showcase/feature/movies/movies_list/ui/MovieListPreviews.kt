@@ -25,6 +25,6 @@ fun MovieListLongTitlePreview340() {
 val mockedMovie = Movie(
     id = "id",
     title = "Movie title",
-    posterUrl = "https://m.media-amazon.com/images/M/MV5BNDk0NjcyMGUtNjZhOC00NDRmLWFhNGMtYzNlMDc2NTA2YjVmXkEyXkFqcGdeQXV",
+    posterUrl = null,
     releaseYear = "1994"
 )

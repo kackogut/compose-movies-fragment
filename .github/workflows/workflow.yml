@@ -22,6 +22,12 @@ jobs:
 
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
+      - uses: 1arp/create-a-file-action@0.2
+        with:
+          path: 'buildSrc'
+          file: 'secrets.properties'
+          content: |
+            MOVES_DB_KEY = ""
       - name: Run lint
         run: ./gradlew lint
       - name: Run all tests

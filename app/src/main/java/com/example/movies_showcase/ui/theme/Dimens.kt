@@ -12,4 +12,7 @@ object Dimens {
     val smallImage = 64.dp
 
     val elevationMedium = 4.dp
+
+    val baseIconSize = 24.dp
+    val largeIconSize = 48.dp
 }

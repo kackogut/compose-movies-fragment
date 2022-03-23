@@ -2,10 +2,23 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/navigation_main"
-    app:startDestination="@id/nav_list">
+    app:startDestination="@id/movies_list">
 
     <fragment
-        android:id="@+id/nav_list"
+        android:id="@+id/movies_list"
         android:name="com.example.movies_showcase.feature.movies.movies_list.ui.MoviesListFragment"
-        android:label="MoviesList" />
+        android:label="MoviesList">
+        <action
+            android:id="@+id/movies_list_to_movie_details"
+            app:destination="@id/movie_details" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/movie_details"
+        android:name="com.example.movies_showcase.feature.movies.details.ui.MoviesDetailsFragment"
+        android:label="MoviesDetailsFragment">
+        <argument
+            android:name="movieId"
+            app:argType="string" />
+    </fragment>
 </navigation>

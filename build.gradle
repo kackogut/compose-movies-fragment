@@ -1,8 +1,11 @@
+import com.example.movies_showcase.buildSrc.Libs
+
 buildscript {
     ext {
-        compose_version = '1.1.1'
-        hilt_version = '2.41'
-        kotlin_version = '1.6.10'
+        compose_version = Libs.AndroidX.Compose.version
+        hilt_version = Libs.Hilt.version
+        kotlin_version = Libs.Kotlin.version
+        navigation_version = Libs.Navigation.version
     }
 }
 plugins {
@@ -10,6 +13,7 @@ plugins {
     id 'com.android.library' version '7.1.2' apply false
     id 'org.jetbrains.kotlin.android' version "$kotlin_version" apply false
     id 'com.google.dagger.hilt.android' version "$hilt_version" apply false
+    id 'androidx.navigation.safeargs.kotlin' version "$navigation_version" apply false
 }
 
 task clean(type: Delete) {

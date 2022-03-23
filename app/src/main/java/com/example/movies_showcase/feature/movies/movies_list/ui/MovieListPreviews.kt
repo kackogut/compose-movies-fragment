@@ -10,7 +10,7 @@ import com.example.movies_showcase.ui.theme.MoviesShowcaseTheme
 @Composable
 fun MovieListPreview340() {
     MoviesShowcaseTheme {
-        MovieListItem(mockedMovie)
+        MovieListItem(mockedMovie) {}
     }
 }
 
@@ -18,7 +18,7 @@ fun MovieListPreview340() {
 @Composable
 fun MovieListLongTitlePreview340() {
     MoviesShowcaseTheme {
-        MovieListItem(mockedMovie.copy(title = "Very long movie title, as long as LOTR extended version with director commentary"))
+        MovieListItem(mockedMovie.copy(title = "Very long movie title, as long as LOTR extended version with director commentary")) {}
     }
 }
 

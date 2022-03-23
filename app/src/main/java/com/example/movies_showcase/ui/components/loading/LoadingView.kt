@@ -15,7 +15,7 @@ fun LoadingView(modifier: Modifier = Modifier) {
     Column(
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally,
-        modifier = modifier
+        modifier = modifier,
     ) {
         Card(elevation = Dimens.elevationMedium) {
             CircularProgressIndicator(modifier = Modifier.padding(Dimens.paddingLarge))

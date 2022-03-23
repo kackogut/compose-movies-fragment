@@ -12,7 +12,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.ComposeView
 import androidx.fragment.app.Fragment
@@ -24,8 +23,7 @@ import com.example.movies_showcase.feature.movies.details.viewmodel.MoviesDetail
 import com.example.movies_showcase.ui.components.NetworkErrorView
 import com.example.movies_showcase.ui.components.loading.LoadingView
 import com.example.movies_showcase.ui.theme.MoviesShowcaseTheme
-import com.example.movies_showcase.ui.theme.Purple500
-import com.example.movies_showcase.ui.theme.Purple700
+import com.example.movies_showcase.ui.theme.baseGradient
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -48,14 +46,7 @@ class MoviesDetailsFragment : Fragment() {
                     Box(
                         modifier = Modifier
                             .fillMaxSize()
-                            .background(
-                                brush = Brush.verticalGradient(
-                                    colors = listOf(
-                                        Purple700,
-                                        Purple500,
-                                    )
-                                )
-                            )
+                            .background(brush = baseGradient)
                     ) {
                         Content(listState)
                     }

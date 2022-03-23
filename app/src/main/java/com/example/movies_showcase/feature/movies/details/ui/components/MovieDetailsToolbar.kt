@@ -48,7 +48,7 @@ fun MovieDetailsToolbar(movieDetails: MovieDetails) {
 
             Text(
                 text = movieDetails.title,
-                style = MaterialTheme.typography.titleLarge.copy(color = Color.White),
+                style = MaterialTheme.typography.titleLarge,
                 modifier = Modifier.padding(start = Dimens.paddingMedium)
             )
         }

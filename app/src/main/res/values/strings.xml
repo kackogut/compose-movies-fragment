@@ -6,5 +6,10 @@
 
     <string name="content_description_missing_image_poster">Missing movie poster icon</string>
     <string name="content_description_image_poster">Movie poster</string>
+    <string name="content_description_rating_star">Rating star</string>
+
     <string name="movies_list_title">Movies list</string>
+    <string name="overview">Overview</string>
+    <string name="genres">Genres</string>
+    <string name="votes">votes</string>
 </resources>

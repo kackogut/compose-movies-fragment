@@ -37,7 +37,7 @@ class MoviesMapper @Inject constructor() {
                 title = titleText.title,
                 posterUrl = primaryImage?.url,
                 releaseYear = releaseDate?.year,
-                plot = plot?.plainText,
+                plot = plot?.plotText?.text,
                 rating = ratings?.let(::ratingDtoToDomainModel),
                 genres = genres?.genreDtos?.map { it.text } ?: listOf()
             )

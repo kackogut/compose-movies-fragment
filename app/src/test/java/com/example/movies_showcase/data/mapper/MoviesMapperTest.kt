@@ -76,7 +76,7 @@ class MoviesMapperTest {
                         votesCount = it.voteCount
                     )
                 },
-                plot = plot?.plainText
+                plot = plot?.plotText?.text
             )
         }
     }

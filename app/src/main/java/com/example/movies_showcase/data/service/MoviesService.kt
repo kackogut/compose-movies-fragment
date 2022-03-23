@@ -11,10 +11,12 @@ interface MoviesService {
 
     @GET("/titles")
     suspend fun getMovies(
-        @Query(value = "page") page: String,
-        @Query(value = "year") year: String = "2021"
+        @Query(value = "page") page: String
     ): Response<MoviesResponse>
 
     @GET("/titles/{title_id}")
-    suspend fun getMovieDetails(@Path("title_id") movieId: String): Response<MovieDetailsResponse>
+    suspend fun getMovieDetails(
+        @Path("title_id") movieId: String,
+        @Query("info") info: String = "base_info"
+    ): Response<MovieDetailsResponse>
 }

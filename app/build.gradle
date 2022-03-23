@@ -97,4 +97,6 @@ dependencies {
     testImplementation Libs.Test.junit
     testImplementation Libs.Test.mockk
     testImplementation Libs.Test.truth
+    testImplementation Libs.AndroidX.Test.core
+    testImplementation Libs.Coroutines.Test.test
 }

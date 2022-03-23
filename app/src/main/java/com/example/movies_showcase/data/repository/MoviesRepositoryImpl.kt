@@ -30,7 +30,7 @@ class MoviesRepositoryImpl @Inject constructor(
     override suspend fun getMovieDetails(movieId: String): Flow<ApiResponse<MovieDetails>> {
         return flow {
             responseHandler.handleApiCall { moviesService.getMovieDetails(movieId) }
-                .run { mapData(moviesMapper::movieDetailsToDomainModel) }
+                .run { mapData(moviesMapper::mapMovieDetailsToDomainObject) }
                 .also { emit(it) }
         }.flowOn(Dispatchers.IO)
     }

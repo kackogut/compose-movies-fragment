@@ -27,10 +27,11 @@ class MoviesRepositoryImplTest {
     @Test
     fun `Given that service returns error, when getMoviesList is called, then should return Error`() =
         runBlocking {
+            val page = 1
             val response = Response.error<MoviesResponse>(500, "".toResponseBody())
-            coEvery { moviesService.getMovies() } returns response
+            coEvery { moviesService.getMovies(page.toString()) } returns response
 
-            val returnedValue = sut.getMoviesList().first()
+            val returnedValue = sut.getMoviesList(page).first()
 
             assertThat(returnedValue).isInstanceOf(ApiResponse.Error::class.java)
         }
@@ -38,13 +39,14 @@ class MoviesRepositoryImplTest {
     @Test
     fun `Given that service return movies list, when getMoviesList is called, then should map the response and return Success with domain model`() =
         runBlocking {
+            val page = 1
             val responseData = mockk<MoviesResponse>()
             val mappedData = mockk<List<Movie>>()
             val response = Response.success(responseData)
             every { moviesMapper.mapMoviesListResponse(responseData) } returns mappedData
-            coEvery { moviesService.getMovies() } returns response
+            coEvery { moviesService.getMovies(page.toString()) } returns response
 
-            val returnedValue = sut.getMoviesList().first()
+            val returnedValue = sut.getMoviesList(page).first()
 
             assertThat(returnedValue).isEqualTo(ApiResponse.Success(mappedData))
         }

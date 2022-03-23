@@ -4,7 +4,7 @@ buildscript {
     ext {
         compose_version = Libs.AndroidX.Compose.version
         hilt_version = Libs.Hilt.version
-        kotlin_version = '1.6.10'
+        kotlin_version = Libs.Kotlin.version
         navigation_version = Libs.Navigation.version
     }
 }

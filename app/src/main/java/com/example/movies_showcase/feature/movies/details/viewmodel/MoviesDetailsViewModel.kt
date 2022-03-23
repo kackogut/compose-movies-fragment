@@ -20,9 +20,9 @@ class MoviesDetailsViewModel @Inject constructor(private val moviesRepository: M
     val state = _state.asStateFlow()
 
     fun loadMovieDetails(movieId: String) {
-        viewModelScope.launch {
-            _state.value = MovieDetailsState.Loading
+        _state.value = MovieDetailsState.Loading
 
+        viewModelScope.launch {
             moviesRepository.getMovieDetails(movieId).collect { moviesResponse ->
                 when (moviesResponse) {
                     is ApiResponse.Error -> _state.value = MovieDetailsState.NetworkError

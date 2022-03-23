@@ -2,6 +2,10 @@ package com.example.movies_showcase.buildSrc
 
 object Libs {
 
+    object Kotlin {
+        const val version = "1.6.10"
+    }
+
     object AndroidX {
         const val coreKtx = "androidx.core:core-ktx:1.7.0"
 
@@ -31,6 +35,22 @@ object Libs {
 
         object Paging {
             const val compose = "androidx.paging:paging-compose:1.0.0-alpha14"
+        }
+
+        object Test {
+            const val core = "androidx.arch.core:core-testing:2.1.0"
+        }
+    }
+
+    object Coroutines {
+        const val version = "1.6.0"
+
+        object Ext {
+            const val core = "org.jetbrains.kotlinx:kotlinx-coroutines-core:$version"
+        }
+
+        object Test {
+            const val test = "org.jetbrains.kotlinx:kotlinx-coroutines-test:$version"
         }
     }
 

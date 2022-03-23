@@ -32,5 +32,3 @@ jobs:
         run: ./gradlew lint
       - name: Run all tests
         run: ./gradlew test
-      - name: Build with Gradle
-        run: ./gradlew build

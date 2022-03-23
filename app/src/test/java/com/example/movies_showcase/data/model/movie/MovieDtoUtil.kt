@@ -35,7 +35,7 @@ object MovieDtoUtil {
             titleText = TitleTextDto(title),
             primaryImage = posterUrl?.let { PrimaryImageDto(posterUrl) },
             releaseDate = releaseYear?.let { ReleaseDateDto(releaseYear) },
-            plot = plot?.let { PlotTextDto(plot) },
+            plot = plot?.let { PlotTextDto(PlotPlainText(plot)) },
             genres = GenresResponse(genres.map { GenreDto("id", it) }),
             ratings = RatingSummaryDto(aggregateRating = rating, voteCount = votesCount)
         )

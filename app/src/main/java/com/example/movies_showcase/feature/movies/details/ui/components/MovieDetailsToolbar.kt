@@ -1,11 +1,16 @@
 package com.example.movies_showcase.feature.movies.details.ui.components
 
 import androidx.activity.compose.LocalOnBackPressedDispatcherOwner
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material.icons.outlined.Movie
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -36,15 +41,7 @@ fun MovieDetailsToolbar(movieDetails: MovieDetails) {
                 },
         )
         Row {
-            AsyncImage(
-                model = movieDetails.posterUrl,
-                contentDescription = stringResource(id = R.string.content_description_image_poster),
-                modifier = Modifier
-                    .width(Dimens.smallImage)
-                    .height(Dimens.smallImage)
-                    .clip(CircleShape),
-                contentScale = ContentScale.Crop,
-            )
+            Poster(movieDetails.posterUrl)
 
             Text(
                 text = movieDetails.title,
@@ -54,3 +51,27 @@ fun MovieDetailsToolbar(movieDetails: MovieDetails) {
         }
     }
 }
+
+@Composable
+private fun Poster(posterUrl: String?) {
+    if (posterUrl == null) {
+        Icon(
+            imageVector = Icons.Outlined.Movie,
+            contentDescription = stringResource(id = R.string.content_description_image_poster),
+            tint = Color.White,
+            modifier = Modifier
+                .background(color = Color.Gray, shape = CircleShape)
+                .size(Dimens.mediumImage)
+        )
+    } else {
+        AsyncImage(
+            model = posterUrl,
+            contentDescription = stringResource(id = R.string.content_description_image_poster),
+            modifier = Modifier
+                .size(Dimens.mediumImage)
+                .clip(CircleShape),
+            contentScale = ContentScale.Crop,
+        )
+    }
+}
+

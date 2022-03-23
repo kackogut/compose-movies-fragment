@@ -57,7 +57,7 @@ fun MovieListItem(movie: Movie, onMovieClick: (String) -> Unit) {
 }
 
 @Composable
-fun Poster(posterUrl: String?) {
+private fun Poster(posterUrl: String?) {
     if (posterUrl == null) {
         Icon(
             imageVector = Icons.Outlined.Movie,
@@ -66,7 +66,7 @@ fun Poster(posterUrl: String?) {
             modifier = Modifier
                 .padding(vertical = Dimens.paddingMedium)
                 .background(color = Color.Gray, shape = Shapes.medium)
-                .width(Dimens.smallImage)
+                .width(Dimens.mediumImage)
                 .fillMaxHeight()
         )
     } else {
@@ -75,7 +75,7 @@ fun Poster(posterUrl: String?) {
             contentDescription = stringResource(id = R.string.content_description_image_poster),
             contentScale = ContentScale.Crop,
             modifier = Modifier
-                .width(Dimens.smallImage)
+                .width(Dimens.mediumImage)
                 .padding(vertical = Dimens.paddingMedium)
                 .clip(Shapes.medium)
         )
@@ -83,7 +83,7 @@ fun Poster(posterUrl: String?) {
 }
 
 @Composable
-fun ColumnScope.Title(title: String) {
+private fun ColumnScope.Title(title: String) {
     Text(
         title,
         modifier = Modifier.weight(1F),
@@ -94,7 +94,7 @@ fun ColumnScope.Title(title: String) {
 }
 
 @Composable
-fun ReleaseYear(releaseYear: String?) {
+private fun ReleaseYear(releaseYear: String?) {
     Text(
         releaseYear ?: "",
         style = MaterialTheme.typography.bodySmall,

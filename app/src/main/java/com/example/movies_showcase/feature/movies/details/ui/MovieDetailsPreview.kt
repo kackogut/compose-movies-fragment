@@ -7,7 +7,7 @@ import com.example.movies_showcase.domain.model.movie.ratings.Rating
 import com.example.movies_showcase.feature.movies.details.ui.components.MovieDetailsView
 import com.example.movies_showcase.ui.theme.MoviesShowcaseTheme
 
-@Preview(widthDp = 340, name = "340 width")
+@Preview(widthDp = 340, name = "340 width", showBackground = true)
 @Composable
 fun MovieDetailsPreview340() {
     MoviesShowcaseTheme {

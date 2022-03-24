@@ -9,7 +9,8 @@ object Dimens {
 
     val baseHorizontalPadding = 24.dp
 
-    val smallImage = 64.dp
+
+    val mediumImage = 64.dp
 
     val elevationMedium = 4.dp
 

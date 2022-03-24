@@ -9,7 +9,7 @@ import androidx.compose.ui.Modifier
 import com.example.movies_showcase.ui.theme.Dimens
 
 @Composable
-fun MovieDetailsOverview(title: String, description: String) {
+fun MovieDetailsOverviewRow(title: String, description: String) {
     Column {
         Text(
             text = title,

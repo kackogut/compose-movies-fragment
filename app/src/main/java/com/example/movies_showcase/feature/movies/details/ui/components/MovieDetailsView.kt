@@ -25,15 +25,18 @@ fun MovieDetailsView(movieDetails: MovieDetails) {
                 MovieRating(rating = ratingAggregate, votesCount = rating.votesCount)
             }
             releaseYear?.let {
-                MovieDetailsOverview(title = "Release year", description = releaseYear)
+                MovieDetailsOverviewRow(
+                    title = stringResource(R.string.release_year),
+                    description = releaseYear
+                )
             }
             plot?.let {
-                MovieDetailsOverview(
+                MovieDetailsOverviewRow(
                     title = stringResource(R.string.overview),
                     description = it
                 )
             }
-            MovieDetailsOverview(
+            MovieDetailsOverviewRow(
                 title = stringResource(R.string.genres),
                 description = genres.joinToString(", ")
             ).takeIf { genres.isNotEmpty() }

@@ -1,5 +1,6 @@
 package com.example.movies_showcase.data.di
 
+import com.example.movies_showcase.BuildConfig
 import com.example.movies_showcase.data.network.KeyInterceptor
 import dagger.Module
 import dagger.Provides
@@ -19,7 +20,11 @@ class ApiModule {
     @Provides
     fun providesLoggingInterceptor(): HttpLoggingInterceptor {
         return HttpLoggingInterceptor().apply {
-            setLevel(HttpLoggingInterceptor.Level.BODY)
+            if (BuildConfig.DEBUG) {
+                setLevel(HttpLoggingInterceptor.Level.BODY)
+            } else {
+                setLevel(HttpLoggingInterceptor.Level.NONE)
+            }
         }
     }
 

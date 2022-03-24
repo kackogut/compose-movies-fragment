@@ -5,7 +5,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.example.movies_showcase.ui.components.NetworkErrorView
 import com.example.movies_showcase.ui.theme.MoviesShowcaseTheme
 
-@Preview(widthDp = 340, name = "340 width")
+@Preview(widthDp = 340, name = "340 width", showBackground = true)
 @Composable
 fun NetworkErrorViewPreview340() {
     MoviesShowcaseTheme {

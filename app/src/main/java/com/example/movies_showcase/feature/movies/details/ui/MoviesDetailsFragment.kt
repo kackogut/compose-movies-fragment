@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
@@ -20,7 +21,7 @@ import androidx.navigation.fragment.navArgs
 import com.example.movies_showcase.feature.movies.details.state.MovieDetailsState
 import com.example.movies_showcase.feature.movies.details.ui.components.MovieDetailsView
 import com.example.movies_showcase.feature.movies.details.viewmodel.MoviesDetailsViewModel
-import com.example.movies_showcase.ui.components.NetworkErrorView
+import com.example.movies_showcase.ui.components.error.NetworkErrorView
 import com.example.movies_showcase.ui.components.loading.LoadingView
 import com.example.movies_showcase.ui.theme.MoviesShowcaseTheme
 import com.example.movies_showcase.ui.theme.baseGradient
@@ -74,7 +75,8 @@ class MoviesDetailsFragment : Fragment() {
                     onTryAgain = { viewModel.loadMovieDetails(args.movieId) },
                     modifier = Modifier
                         .fillMaxSize()
-                        .background(color = Color.Transparent)
+                        .background(color = Color.Transparent),
+                    textColor = MaterialTheme.colors.onPrimary
                 )
             }
         }

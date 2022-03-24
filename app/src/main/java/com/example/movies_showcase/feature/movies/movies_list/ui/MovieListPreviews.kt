@@ -6,7 +6,7 @@ import com.example.movies_showcase.domain.model.movie.Movie
 import com.example.movies_showcase.feature.movies.movies_list.ui.components.MovieListItem
 import com.example.movies_showcase.ui.theme.MoviesShowcaseTheme
 
-@Preview(widthDp = 340, name = "340 width")
+@Preview(widthDp = 340, name = "340 width", showBackground = true)
 @Composable
 fun MovieListPreview340() {
     MoviesShowcaseTheme {
@@ -14,7 +14,7 @@ fun MovieListPreview340() {
     }
 }
 
-@Preview(widthDp = 340, name = "long title 340 width")
+@Preview(widthDp = 340, name = "long title 340 width", showBackground = true)
 @Composable
 fun MovieListLongTitlePreview340() {
     MoviesShowcaseTheme {

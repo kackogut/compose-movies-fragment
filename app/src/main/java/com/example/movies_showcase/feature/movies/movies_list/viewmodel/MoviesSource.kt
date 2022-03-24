@@ -11,9 +11,8 @@ class MoviesSource(private val moviesRepository: MoviesRepository) : PagingSourc
 
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, Movie> {
         val nextPage = params.key ?: 1
-        val movieListResponse = moviesRepository.getMoviesList(nextPage).first()
 
-        return when (movieListResponse) {
+        return when (val movieListResponse = moviesRepository.getMoviesList(nextPage).first()) {
             is ApiResponse.Success -> {
                 LoadResult.Page(
                     data = movieListResponse.data,

@@ -1,5 +1,6 @@
 package com.example.movies_showcase.feature.movies.movies_list.ui.components
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
@@ -13,6 +14,7 @@ import com.example.movies_showcase.domain.model.movie.Movie
 import com.example.movies_showcase.ui.components.NetworkErrorView
 import com.example.movies_showcase.ui.components.loading.LoadingView
 import com.example.movies_showcase.ui.theme.Dimens
+import com.example.movies_showcase.ui.theme.baseGradient
 
 @Composable
 fun MoviesList(
@@ -41,7 +43,9 @@ fun MoviesList(
                 item {
                     NetworkErrorView(
                         onTryAgain = { movies.retry() },
-                        modifier = Modifier.fillParentMaxWidth()
+                        modifier = Modifier
+                            .fillParentMaxWidth()
+                            .background(brush = baseGradient)
                     )
                 }
             }
@@ -49,7 +53,9 @@ fun MoviesList(
                 item {
                     NetworkErrorView(
                         onTryAgain = { movies.retry() },
-                        modifier = Modifier.fillParentMaxSize()
+                        modifier = Modifier
+                            .fillParentMaxSize()
+                            .background(brush = baseGradient)
                     )
                 }
             }
